@@ -11,6 +11,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bullet.css" rel="stylesheet">
+    <link href="css/chart.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -134,6 +135,76 @@
         </div>
         <!-- End overall -->
 
+        <!-- Allocation -->
+        <div class="allocation">
+          <div class="row">
+            <div class="col-md-3 regions">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <th>
+                    COUNTIES
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="active"><i class="pointer"></i>National</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Bomet</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Embu</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Kakamega</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Kericho</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Kisii</td>
+                  </tr>
+                  <tr>
+                    <td><i class="pointer"></i>Kisumu</td>
+                  </tr>
+              </table>
+            </div>
+
+            <div class="col-md-3 departments">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <th>
+                    DEPARTMENTS
+                  </th>
+                </thead>
+                <tbody class="legends">
+                  <tr>
+                    <td class="active legend a"><i class="pointer"></i>Transport &amp; Infrastracture - 90B</td>
+                  </tr>
+                  <tr>
+                    <td class="legend b"><i class="pointer"></i>Health - 20.6M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend c"><i class="pointer"></i>Devolution &amp; Plan - 1.3B</td>
+                  </tr>
+                  <tr>
+                    <td class="legend d"><i class="pointer"></i>The National Treasury - 50M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend e"><i class="pointer"></i>Defence - 10M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend f"><i class="pointer"></i>Education - 30.2M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend g"><i class="pointer"></i>Sports, Culture and the Arts - 20M</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- //End Allocation -->
+
       </div>
     </div>
     <!-- //End Content -->
@@ -209,17 +280,9 @@
           console.log("Preparing bullet chart");
           var margin = {top: 5, right: 40, bottom: 20, left: 120};
           width = $('.overall .col-md-12').width();
-          // height = 50;
 
           data = [{"title":"Expenditure","subtitle":"KES, in Millions","ranges":[1389.2],"measures":[835.2],"markers":[1389.2]}];
 
-          // var chart = d3.bullet().width(width).height(height);
-
-          // d3.select('#chart svg')
-          //   .datum(data)
-          //   .transition().duration(1000)
-          //   .call(chart)
-          // ;
 
           var margin = {top: 5, right: 40, bottom: 20, left: 120};
           width = width - margin.left - margin.right,
@@ -229,37 +292,28 @@
               .width(width)
               .height(height);
 
-          // d3.json("js/sample.json", function(error, data) {
-            var svg = d3.select(".bullet.chart").selectAll("svg")
-                .data(data)
-              .enter().append("svg")
-                .attr("class", "bullet")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .call(chart);
+          var svg = d3.select(".bullet.chart").selectAll("svg")
+              .data(data)
+            .enter().append("svg")
+              .attr("class", "bullet")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+              .call(chart);
 
-            var title = svg.append("g")
-                .style("text-anchor", "end")
-                .attr("transform", "translate(-6," + height / 2 + ")");
+          var title = svg.append("g")
+              .style("text-anchor", "end")
+              .attr("transform", "translate(-6," + height / 2 + ")");
 
-            title.append("text")
-                .attr("class", "title")
-                .text(function(d) { return d.title; });
+          title.append("text")
+              .attr("class", "title")
+              .text(function(d) { return d.title; });
 
-            title.append("text")
-                .attr("class", "subtitle")
-                .attr("dy", "1em")
-                .text(function(d) { return d.subtitle; });
-
-            // d3.selectAll("button").on("click", function() {
-            //   svg.datum(randomize).call(chart.duration(1000)); // TODO automatic transition
-            // });
-          // });
-
-
-          console.log("Width : ", width);
+          title.append("text")
+              .attr("class", "subtitle")
+              .attr("dy", "1em")
+              .text(function(d) { return d.subtitle; });
       })();
     </script>
   </body>

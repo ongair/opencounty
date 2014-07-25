@@ -1,0 +1,8 @@
+.legends td.legend { border-right-width: 7px }
+.legends td.legend.a { border-right-color: #ff9c00; }
+.legends td.legend.b { border-right-color: #cc0066; }
+.legends td.legend.c { border-right-color: #ffff66; }
+.legends td.legend.d { border-right-color: #00cc99; }
+.legends td.legend.e { border-right-color: #99cc33; }
+.legends td.legend.f { border-right-color: #cc3333; }
+.legends td.legend.g { border-right-color: #3366cc; }

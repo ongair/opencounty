@@ -88,6 +88,23 @@
 	color: #333333;
 }
 
+/* Allocation */
+.main .allocation { 
+	margin: 3rem auto;
+}
+
+.allocation .table th { 
+	color: #666666;
+	font-weight: 400;
+}
+
+.allocation .pointer {
+	width: 7px;
+	height: 14px;
+	display: inline-block;
+	background: url('../img/pointer.png');
+	margin: 0.5px 0.5rem 0px 0px;
+}
 
 
 /* Footer */
