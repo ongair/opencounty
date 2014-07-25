@@ -1,3 +1,4 @@
+#pieChart svg { display: block; margin: auto;}
 .legends td.legend { border-right-width: 7px }
 .legends td.legend.a { border-right-color: #ff9c00; }
 .legends td.legend.b { border-right-color: #cc0066; }
