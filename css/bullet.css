@@ -1,0 +1,10 @@
+.bullet.chart {
+	margin: 2rem auto;
+}
+
+.bullet { font: 10px sans-serif; }
+.bullet .tick line { stroke: #666; stroke-width: .5px; }
+.bullet .range.s0 { fill: #eee; }
+.bullet .measure.s0 { fill: #00b0f6; }
+.bullet .title { font-size: 16px; font-weight: 200; }
+.bullet .subtitle { fill: #999; }

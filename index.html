@@ -10,6 +10,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/bullet.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -127,7 +128,7 @@
         <div class="overall">
           <div class="row">
             <div class="col-md-12">
-              <div id="chart"></div>
+              <div id="chart" class="bullet chart"></div>
             </div>
           </div>
         </div>
@@ -201,5 +202,65 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="js/d3.min.js"></script>
+    <script src="js/d3.bullet.js"></script>
+
+    <script type="text/javascript">
+      (function() {
+          console.log("Preparing bullet chart");
+          var margin = {top: 5, right: 40, bottom: 20, left: 120};
+          width = $('.overall .col-md-12').width();
+          // height = 50;
+
+          data = [{"title":"Expenditure","subtitle":"KES, in Millions","ranges":[1389.2],"measures":[835.2],"markers":[1389.2]}];
+
+          // var chart = d3.bullet().width(width).height(height);
+
+          // d3.select('#chart svg')
+          //   .datum(data)
+          //   .transition().duration(1000)
+          //   .call(chart)
+          // ;
+
+          var margin = {top: 5, right: 40, bottom: 20, left: 120};
+          width = width - margin.left - margin.right,
+          height = 50 - margin.top - margin.bottom;
+
+          var chart = d3.bullet()
+              .width(width)
+              .height(height);
+
+          // d3.json("js/sample.json", function(error, data) {
+            var svg = d3.select(".bullet.chart").selectAll("svg")
+                .data(data)
+              .enter().append("svg")
+                .attr("class", "bullet")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .call(chart);
+
+            var title = svg.append("g")
+                .style("text-anchor", "end")
+                .attr("transform", "translate(-6," + height / 2 + ")");
+
+            title.append("text")
+                .attr("class", "title")
+                .text(function(d) { return d.title; });
+
+            title.append("text")
+                .attr("class", "subtitle")
+                .attr("dy", "1em")
+                .text(function(d) { return d.subtitle; });
+
+            // d3.selectAll("button").on("click", function() {
+            //   svg.datum(randomize).call(chart.duration(1000)); // TODO automatic transition
+            // });
+          // });
+
+
+          console.log("Width : ", width);
+      })();
+    </script>
   </body>
 </html>
