@@ -34,7 +34,7 @@
 }
 
 .banner .search .glyphicon {
-	color: #cc0000;
+	color: #ff3300;
 }
 
 /* Main Menu */
@@ -54,7 +54,7 @@
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-	background-color: #cc0000;
+	background-color: #ff3300;
 	color: #ffffff;
 }
 
@@ -62,4 +62,60 @@
 	border-left: 1px solid #e7e7e7;
 	min-height: 20px;
 	margin-top: 15px;
+}
+
+
+/* Footer */
+
+.footer .footer-nav {
+	background-color: #666666;
+	padding: 2rem inherit;
+	color: #dcdcdc;
+	font-weight: 200;
+}
+
+
+.footer .footer-nav h4 {
+	color: #ffffff;
+	font-weight: 100;
+}
+
+.footer .footer-nav .contacts ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.footer .footer-nav .contacts li {
+	font-size: .9.5rem;
+}
+
+.footer .footer-nav .contacts i {
+	margin-right: 1em;
+}
+
+
+
+.footer .attribution {
+	background-color: #ff3300;
+	border-top: 2px solid #ffffff;
+	color: #ffffff;
+}
+
+.footer .attribution p {
+	margin: 10px auto;
+	font-size: .85em;
+}
+
+.footer .attribution img.license {
+	width: 80px;
+	height: 15px;
+}
+
+.footer .attribution .built {
+	text-align: right;
+}
+
+.footer .attribution .built a {
+	color: #ffffff;
+	font-weight: 700;
 }
