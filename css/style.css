@@ -64,6 +64,31 @@
 	margin-top: 15px;
 }
 
+/* Main Content */
+.main h1 {
+	margin-top: 10px;
+	font-weight: 200;
+	display: inline-block;
+	font-size: 3rem;
+	border-bottom: 3px solid #ff3300;
+}
+
+.main .toggles .nav-pills>li.active>a, 
+.main .toggles .nav-pills>li.active>a:hover, 
+.main .toggles .nav-pills>li.active>a:focus {
+	background-color: #ff3300;
+	color: #ffffff;
+}
+
+.main .toggles .nav-pills {
+	float: right;
+}
+
+.main .toggles .nav-pills>li>a {
+	color: #333333;
+}
+
+
 
 /* Footer */
 
@@ -91,8 +116,8 @@
 
 .footer .footer-nav .contacts i {
 	margin-right: 1em;
+	min-width: 12px;
 }
-
 
 
 .footer .attribution {
