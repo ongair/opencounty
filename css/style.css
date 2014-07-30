@@ -98,6 +98,10 @@
 	font-weight: 400;
 }
 
+.allocation .table {
+	font-size: 0.8em;
+}
+
 .allocation .pointer {
 	width: 7px;
 	height: 14px;
