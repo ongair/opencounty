@@ -41,7 +41,7 @@
 
 .main.menu .navbar {
 	border-radius: 0px;
-	min-height: 40px;
+	min-height: 32px;
 }
 
 .main.menu .navbar-default {
@@ -58,10 +58,15 @@
 	color: #ffffff;
 }
 
+.main.menu .navbar-nav>li>a {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 .main.menu li.divider {
 	border-left: 1px solid #e7e7e7;
-	min-height: 20px;
-	margin-top: 15px;
+	min-height: 15px;
+	margin-top: 5px;
 }
 
 /* Main Content */
@@ -105,7 +110,7 @@
 .allocation .pointer {
 	width: 7px;
 	height: 14px;
-	display: inline-block;
+	display: none;
 	background: url('../img/pointer.png');
 	margin: 0.5px 0.5rem 0px 0px;
 }
