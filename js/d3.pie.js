@@ -308,7 +308,52 @@ var helpers = {
 		return { w: w, h: h };
 	},
 
-	wrap: function(text,width) {
+	wrap: function(group,text,width) {
+		// labelGroup.append("text")
+			// 	.attr("id", function(d, i) { return pie.cssPrefix + "segmentMainLabel" + i + "-" + section; })
+			// 	.attr("class", pie.cssPrefix + "segmentMainLabel-" + section)
+			// 	.text(function(d) {
+			// 		var str = d.label;
+			// 		if (settings.truncation.enabled && d.label.length > settings.truncation.length) {
+			// 			str = d.label.substring(0, settings.truncation.length) + "...";
+			// 		}
+			// 		return str;
+			// 	})
+			// 	.style("width", "80px")
+			// 	.style("word-wrap", "break-word")
+			// 	.style("font-size", settings.mainLabel.fontSize + "px")
+			// 	.style("font-family", settings.mainLabel.font)
+			// 	.style("fill", settings.mainLabel.color);
+
+		// text.each(function() {
+		  //   var text = d3.select(this),
+		  //       words = text.text().split(/\s+/).reverse(),
+		  //       word,
+		  //       line = [],
+		  //       lineNumber = 0,
+		  //       lineHeight = 1.1, // ems
+		  //       y = text.attr("y"),
+		  //       dy = parseFloat(text.attr("dy")),
+		  //       tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+		  //   while (word = words.pop()) {
+		  //     line.push(word);
+		  //     tspan.text(line.join(" "));
+		  //     if (tspan.node().getComputedTextLength() > width) {
+		  //       line.pop();
+		  //       tspan.text(line.join(" "));
+		  //       line = [word];
+		  //       tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+		  //     }
+		  //   }
+		  // });
+		var words = text.split(/\s+/).reverse(),
+			word,
+			line = []
+			lineNumber = 0,
+			lineHeight = 1.1;
+
+		// group.
+		console.log("Spanning ", text);
 
 	},
 
@@ -763,6 +808,8 @@ var labels = {
 		var outerLabel = pie.svg.insert("g", "." + pie.cssPrefix + "labels-" + section)
 			.attr("class", pie.cssPrefix + "labels-" + section);
 
+		console.log("Outer Label ", outerLabel);
+
 		var labelGroup = outerLabel.selectAll("." + pie.cssPrefix + "labelGroup-" + section)
 			.data(pie.options.data.content)
 			.enter()
@@ -778,14 +825,13 @@ var labels = {
 				.attr("id", function(d, i) { return pie.cssPrefix + "segmentMainLabel" + i + "-" + section; })
 				.attr("class", pie.cssPrefix + "segmentMainLabel-" + section)
 				.text(function(d) {
+					// debugger;
 					var str = d.label;
 					if (settings.truncation.enabled && d.label.length > settings.truncation.length) {
 						str = d.label.substring(0, settings.truncation.length) + "...";
 					}
 					return str;
 				})
-				.style("width", "80px")
-				.style("word-wrap", "break-word")
 				.style("font-size", settings.mainLabel.fontSize + "px")
 				.style("font-family", settings.mainLabel.font)
 				.style("fill", settings.mainLabel.color);
