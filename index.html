@@ -97,6 +97,8 @@
     </div>
     <!-- //End of Main Menu -->
 
+
+
     <!-- Main Content -->
     <div class="main">
       <div class="container">
@@ -137,40 +139,26 @@
 
         <!-- Allocation -->
         <div class="allocation">
-          <div class="row">
-            <div class="col-md-2 regions">
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <th>
-                    COUNTIES
-                  </th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="active"><i class="pointer"></i>National</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Bomet</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Embu</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Kakamega</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Kericho</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Kisii</td>
-                  </tr>
-                  <tr>
-                    <td><i class="pointer"></i>Kisumu</td>
-                  </tr>
-              </table>
-            </div>
+          <div class="row">          
 
-            <div class="col-md-3 departments">
+            <!-- Sidebar -->
+            <div class="col-md-3 regions">
+
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  Choose a Region
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                  <li class="active"><a role="menuitem" tabindex="-1" href="#">National</a></li>
+                  <li class="divider"></li>
+                  <li><a role="menuitem" tabindex="-1" href="#">Nairobi</a></li>
+                  <li><a role="menuitem" tabindex="-1" href="#">Kisumu</a></li>
+                  <li><a role="menuitem" tabindex="-1" href="#">Bomet</a></li>
+                  <li><a role="menuitem" tabindex="-1" href="#">Kiambu</a></li>
+                </ul>
+              </div>
+
               <table class="table table-bordered table-hover">
                 <thead>
                   <th>
@@ -179,10 +167,10 @@
                 </thead>
                 <tbody class="legends">
                   <tr>
-                    <td class="active legend a"><i class="pointer"></i>Transport &amp; Infrastracture - 90B</td>
+                    <td class="active legend a"><i class="pointer"></i>Agriculture, Rural & Urban Development - 38 M</td>
                   </tr>
                   <tr>
-                    <td class="legend b"><i class="pointer"></i>The Governance, Justice, Law and Order (GJLOS) - 86 M</td>
+                    <td class="legend b"><i class="pointer"></i>Education - 189 M</td>
                   </tr>
                   <tr>
                     <td class="legend c"><i class="pointer"></i>Devolution &amp; Plan - 1.3B</td>
@@ -191,19 +179,31 @@
                     <td class="legend d"><i class="pointer"></i>The National Treasury - 50M</td>
                   </tr>
                   <tr>
-                    <td class="legend e"><i class="pointer"></i>Defence - 10M</td>
+                    <td class="legend e"><i class="pointer"></i>The Energy,Infrastructure and ICT - 45 M</td>
                   </tr>
                   <tr>
-                    <td class="legend f"><i class="pointer"></i>Education - 30.2M</td>
+                    <td class="legend f"><i class="pointer"></i>General Economic & Commercial Affairs (GECLA) - 8 M</td>
                   </tr>
                   <tr>
                     <td class="legend g"><i class="pointer"></i>Sports, Culture and the Arts - 20M</td>
+                  </tr>                 
+                  <tr>
+                    <td class="legend a"><i class="pointer"></i>The Environmental Protection, Water and Natural Resources - 19 M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend b"><i class="pointer"></i>The Public Administration and International Relations - 93 M</td>
+                  </tr>
+                  <tr>
+                    <td class="legend c"><i class="pointer"></i>Sub-Total Consolidated Fund Services - 149 M</td>
                   </tr>
               </table>
+            </div>  
+            <!-- //End Sidebar -->
+            
+            <!-- Chart             -->
+            <div class="col-md-9" id="pieChart">
             </div>
-
-            <div class="col-md-10" id="pieChart">
-            </div>
+            <!-- End chart -->
           </div>
         </div>
         <!-- //End Allocation -->
@@ -323,14 +323,14 @@
 
           var pie = new d3pie(document.getElementById("pieChart"), {
             "size": {
-                "canvasWidth": 600,
+                "canvasWidth": 800,
                 "pieInnerRadius": "0%",
                 "pieOuterRadius": "50%"
             },
             "data": {
-                "sortOrder": "random",
+                "sortOrder": "value-desc",
                 "content": [{
-                    "label": "The Governance, Justice, Law and Order (GJLOS) - 86 M",
+                    "label": "The Governance, Justice, Law and Order (GJLOS)",
                     "value": 400,
                     "color": "#ff9c00"
                 }, {
@@ -340,6 +340,16 @@
                 }, {
                     "label": "General Economic & Commercial Affairs (GECLA)",
                     "value": 50,
+                    "color": "#99cc33"
+                }, {
+                }, {
+                    "label": "The Energy,Infrastructure and ICT",
+                    "value": 150,
+                    "color": "#3366cc"
+                }, {
+                }, {
+                    "label": "The Public Administration and International Relations ",
+                    "value": 90,
                     "color": "#ffff66"
                 }, {
                     "label": "Transport & Infrastracture",
@@ -364,10 +374,10 @@
                     "pieDistance": 32
                 },
                 "inner": {
-                    "format": "value"
+                    "format": "none"
                 },
                 "mainLabel": {
-                    "fontSize": 9
+                    "fontSize": 10
                 },
                 "percentage": {
                     "color": "#ffffff",

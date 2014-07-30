@@ -308,6 +308,10 @@ var helpers = {
 		return { w: w, h: h };
 	},
 
+	wrap: function(text,width) {
+
+	},
+
 	/**
 	 * This is based on the SVG coordinate system, where top-left is 0,0 and bottom right is n-n.
 	 * @param r1

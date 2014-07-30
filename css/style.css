@@ -110,6 +110,33 @@
 	margin: 0.5px 0.5rem 0px 0px;
 }
 
+.regions .dropdown .btn,
+.regions .dropdown-menu { 
+	width: 100%; 
+	border-radius: 0px;
+}
+
+.regions .dropdown-menu { 
+	padding: 0px 0px 5px;
+}
+
+.regions .btn .caret {
+	float: right;
+	margin-top: 8px;
+}
+
+.regions .dropdown-menu .divider {
+	margin: 1px 0;
+}
+
+.regions .dropdown {
+	margin-bottom: 2em;
+}
+
+.regions .dropdown .active {
+	font-weight: 300;
+}
+
 
 /* Footer */
 
