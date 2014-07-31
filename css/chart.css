@@ -7,3 +7,18 @@
 .legends td.legend.e { border-right-color: #99cc33; }
 .legends td.legend.f { border-right-color: #cc3333; }
 .legends td.legend.g { border-right-color: #3366cc; }
+
+.axis path, .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.barchart.stacked {
+	margin-top: 80px;
+}

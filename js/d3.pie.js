@@ -828,7 +828,26 @@ var labels = {
 					if (settings.truncation.enabled && d.label.length > settings.truncation.length) {
 						str = d.label.substring(0, settings.truncation.length) + "...";
 					}
+					
+					var words = d.label.split(/\s+/),
+						line = [],
+						lineNumber = 0,
+						lineHeight = 1.1;
+
+					// group.
+					console.log("Spanning ", d.label);
+					if (str.length >= 40) {
+						var half_length = Math.ceil(words.length / 2);	
+						var first = words.splice(0,half_length);
+						var last = words.splice(0,half_length);
+
+						console.log("First part : ", first);
+						console.log("Last part : ", last);
+					}
+
 					return str;
+
+
 				})
 				.style("font-size", settings.mainLabel.fontSize + "px")
 				.style("font-family", settings.mainLabel.font)

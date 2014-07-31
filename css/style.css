@@ -34,7 +34,7 @@
 }
 
 .banner .search .glyphicon {
-	color: #ff3300;
+	color: #ee522b;
 }
 
 /* Main Menu */
@@ -54,7 +54,7 @@
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-	background-color: #ff3300;
+	background-color: #ee522b;
 	color: #ffffff;
 }
 
@@ -75,13 +75,13 @@
 	font-weight: 200;
 	display: inline-block;
 	font-size: 3rem;
-	border-bottom: 3px solid #ff3300;
+	border-bottom: 3px solid #ee522b;
 }
 
 .main .toggles .nav-pills>li.active>a, 
 .main .toggles .nav-pills>li.active>a:hover, 
 .main .toggles .nav-pills>li.active>a:focus {
-	background-color: #ff3300;
+	background-color: #ee522b;
 	color: #ffffff;
 }
 
@@ -173,8 +173,8 @@
 }
 
 
- .attribution {
-	background-color: #ff3300;
+.footer .attribution {
+	background-color: #ee522b;
 	border-top: 2px solid #ffffff;
 	color: #ffffff;
 }

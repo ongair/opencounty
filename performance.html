@@ -108,16 +108,16 @@
           <div class="row">
             <div class="col-md-4">
               <h1 class="title">
-                National Allocations
+                National Performance
               </h1>
             </div>
             <div class="col-md-4 col-md-offset-4">
               <div class="toggles">
                 <ul class="nav nav-pills">
-                  <li class="active">
+                  <li class="">
                     <a href="index.html">Allocation</a>
                   </li>
-                  <li> 
+                  <li class="active"> 
                     <a href="performance.html">Performance</a>
                   </li>
                 </ul>
@@ -202,6 +202,8 @@
             
             <!-- Chart             -->
             <div class="col-md-9" id="pieChart">
+              <div class="stacked barchart">
+              </div>
             </div>
           </div>
         </div>
@@ -241,19 +243,15 @@
             <div class="col-md-4 menu">
               <h4 class="footermenu">Footer Menu</h4>
                 <ul class="footer-menu">
-                    <li>
-                    About the initiative
-                    </li>
-                    <li>
-                    About Open County Dashboard
-                    </li>
-                    <li>
-                    Disseminating knowledge
-                    </li>
-                    <li>
-                    Disseminating knowledge
-                    </li>
-                  </ul>
+                  <li>
+                  </li>
+                  <li>
+                  </li>
+                  <li>
+                  </li>
+                  <li>
+                  </li>
+                </ul>
             </div>
             <div class="col-md-4 ">
               <h4>News Letter</h4>
@@ -262,29 +260,15 @@
               tempor incididunt ut labore et dolore
               </p>
               <form>
-                    <div class="row" style="padding-top: 10px;">
-                    <div class="col-md-8">
-                    <input type="text" placeholder="Enter Email" class="input placeholder">
-                    </div>
-                    <div class="col-md-4" style="padding-left: 0px">
-                    <a href="#" class="Button">Submit</a>
+                <div class="row collapse" style="padding-right: 10px;">
+                  <div class="small-8 columns">
+                    <input type="text" placeholder="Enter Email">
                   </div>
-              </form>
-                <div class="socialicons">
-                <a href="">
-                  <img src="img/facebook.png">
-                </a>
-                <a href="">
-                <img src="img/twitter.png">
-                </a>
-                <a href="">
-                <img src="img/google.png">
-                </a>
-                <a href="">
-                  <img src="img/rss.png">
-                </a>
+                  <div class="small-4 columns">
+                    <a href="#" class="Button">submit</a>
+                  </div>
                 </div>
-              </div>
+              </form>              
             </div>
           </div>
         </div>
@@ -360,92 +344,238 @@
               .text(function(d) { return d.subtitle; });
 
 
-          var pie = new d3pie(document.getElementById("pieChart"), {
-            "size": {
-                "canvasWidth": 800,
-                "pieInnerRadius": "0%",
-                "pieOuterRadius": "50%"
+          // >>>
+
+          var margins = {
+              top: 12,
+              left: 350,
+              right: 24,
+              bottom: 25
             },
-            "data": {
-                "sortOrder": "random",
-                "content": [{
-                    "label": "The Governance, Justice, Law and Order (GJLOS)",
-                    "value": 400,
-                    "color": "#ff9c00"
-                }, {
-                    "label": "Health",
-                    "value": 120,
-                    "color": "#cc0066"
-                }, {
-                    "label": "General Economic & Commercial Affairs (GECLA)",
-                    "value": 50,
-                    "color": "#99cc33"
-                }, {
-                }, {
-                    "label": "The Energy,Infrastructure and ICT",
-                    "value": 150,
-                    "color": "#3366cc"
-                }, {
-                }, {
-                    "label": "The Public Administration and International Relations ",
-                    "value": 90,
-                    "color": "#ffff66"
-                }, {
-                    "label": "Transport & Infrastracture",
-                    "value": 50,
-                    "color": "#90c469"
-                }, {
-                    "label": "Defence",
-                    "value": 10,
-                    "color": "#daca61"
-                }, {
-                    "label": "Education",
-                    "value": 30,
-                    "color": "#e4a14b"
-                }, {
-                    "label": "Sports, Culture and the Arts",
-                    "value": 20,
-                    "color": "#e98125"
-                }]
+            legendPanel = {
+              width: 180
             },
-            "labels": {
-                "outer": {
-                    "pieDistance": 32
-                },
-                "inner": {
-                    "format": "none"
-                },
-                "mainLabel": {
-                    "fontSize": 10
-                },
-                "percentage": {
-                    "color": "#ffffff",
-                    "decimalPlaces": 0
-                },
-                "value": {
-                    "color": "#ffffff",
-                    "fontSize": 15,
-                    "font": "Helvetica Neue"
-                },
-                "lines": {
-                    "enabled": true,
-                    "style": "straight"
-                }
-            },
-            "effects": {
-                "pullOutSegmentOnClick": {
-                    "effect": "linear",
-                    "speed": 400,
-                    "size": 8
-                }
-            },
-            "misc": {
-                "gradient": {
-                    "enabled": true,
-                    "percentage": 100
-                }
-            }
-        });
+            
+            width = 900 - margins.left - margins.right - legendPanel.width,
+            height = 250 - margins.top - margins.bottom,
+            dataset = [
+              {
+                data: [
+                  {
+                    dept: 'Agriculture, Rural & Urban Development',
+                    percent: 10
+                  }, 
+                  {
+                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
+                    percent: 25
+                  }, 
+                  {              
+                    dept: 'Devolution & Plan',
+                    percent: 25
+                  },
+                  {
+                    dept: 'The National Treasury',
+                    percent: 65
+                  },
+                  {
+                    dept: 'The Energy,Infrastructure and ICT',
+                    percent: 25
+                  },
+                  {
+                    dept: 'General Economic & Commercial Affairs (GECLA)',
+                    percent: 25
+                  },
+                  {
+                    dept: 'Sports, Culture and the Arts',
+                    percent: 63
+                  }, 
+                  {
+                    dept: 'The Environmental Protection, Water and Natural Resources',
+                    percent: 35
+                  }, 
+                  {
+                    dept: 'The Public Administration and International Relations',
+                    percent: 88
+                  }
+                ],
+                name: 'Spent'
+              }, 
+              {
+                data: [
+                  {
+                    dept: 'Agriculture, Rural & Urban Development',
+                    percent: 90
+                  }, 
+                  {
+                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
+                    percent: 75
+                  }, 
+                  {              
+                    dept: 'Devolution & Plan',
+                    percent: 75
+                  },
+                  {
+                    dept: 'The National Treasury',
+                    percent: 35
+                  },
+                  {
+                    dept: 'The Energy,Infrastructure and ICT',
+                    percent: 75
+                  },
+                  {
+                    dept: 'General Economic & Commercial Affairs (GECLA)',
+                    percent: 75
+                  },
+                  {
+                    dept: 'Sports, Culture and the Arts',
+                    percent: 37
+                  }, 
+                  {
+                    dept: 'The Environmental Protection, Water and Natural Resources',
+                    percent: 65
+                  }, 
+                  {
+                    dept: 'The Public Administration and International Relations',
+                    percent: 12
+                  }
+                ],
+                name: 'Allocated'
+              },{
+                data: [
+                  {
+                    dept: 'Agriculture, Rural & Urban Development',
+                    percent: 1
+                  }, 
+                  {
+                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
+                    percent: 5
+                  }, 
+                  {              
+                    dept: 'Devolution & Plan',
+                    percent: 15
+                  },
+                  {
+                    dept: 'The National Treasury',
+                    percent: 6
+                  },
+                  {
+                    dept: 'The Energy,Infrastructure and ICT',
+                    percent: 0
+                  },
+                  {
+                    dept: 'General Economic & Commercial Affairs (GECLA)',
+                    percent: 0
+                  },
+                  {
+                    dept: 'Sports, Culture and the Arts',
+                    percent: 12
+                  }, 
+                  {
+                    dept: 'The Environmental Protection, Water and Natural Resources',
+                    percent: 5
+                  }, 
+                  {
+                    dept: 'The Public Administration and International Relations',
+                    percent: 0
+                  }
+                ],
+                name: 'Overspent'
+              }
+            ],
+            series = dataset.map(function (d) {
+                return d.name;
+            }),
+            dataset = dataset.map(function (d) {
+                return d.data.map(function (o, i) {
+                    // Structure it so that your numeric
+                    // axis (the stacked amount) is y
+                    return {
+                        y: o.percent,
+                        x: o.dept
+                    };
+                });
+            }),
+            stack = d3.layout.stack();
+            stack(dataset);
+
+            var dataset = dataset.map(function (group) {
+              return group.map(function (d) {
+                // Invert the x and y values, and y0 becomes x0
+                return {
+                  x: d.y,
+                  y: d.x,
+                  x0: d.y0
+                };
+              });
+            }),
+            
+            svg = d3.select('.stacked.barchart')
+                .append('svg')
+                .attr('width', width + margins.left + margins.right + legendPanel.width)
+                .attr('height', height + margins.top + margins.bottom)
+                .append('g')
+                .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')'),
+                xMax = d3.max(dataset, function (group) {
+                    return d3.max(group, function (d) {
+                        return d.x + d.x0;
+                    });
+                }),
+                xScale = d3.scale.linear()
+                    .domain([0, xMax])
+                    .range([0, width]),
+                months = dataset[0].map(function (d) {
+                    return d.y;
+                }),
+                _ = console.log(months),
+                yScale = d3.scale.ordinal()
+                    .domain(months)
+                    .rangeRoundBands([0, height], .1),
+                xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient('bottom'),
+                yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient('left'),
+                //colours = d3.scale.category10(),
+                colours = ["#77cf25","#f3f3f4", "#d1001e"],
+                groups = svg.selectAll('g')
+                    .data(dataset)
+                    .enter()
+                    .append('g')
+                    .style('fill', function (d, i) {
+                    return colours[i];
+                }),
+                rects = groups.selectAll('rect')
+                    .data(function (d) {
+                    return d;
+                })
+                    .enter()
+                    .append('rect')
+                    .attr('x', function (d) {
+                    return xScale(d.x0);
+                })
+                    .attr('y', function (d, i) {
+                    return yScale(d.y);
+                })
+                    .attr('height', function (d) {
+                    return yScale.rangeBand();
+                })
+                    .attr('width', function (d) {
+                    return xScale(d.x);
+                })
+                    
+
+                svg.append('g')
+                    .attr('class', 'axis')
+                    .attr('transform', 'translate(0,' + height + ')')
+                    .call(xAxis);
+
+            svg.append('g')
+                .attr('class', 'axis')
+                .call(yAxis);
+
+
+          
       })();
     </script>
   </body>
