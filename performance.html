@@ -255,8 +255,45 @@
             <!-- //End Sidebar -->
             
             <!-- Chart             -->
-            <div class="col-md-9" id="pieChart">
-              <div class="stacked barchart">
+            <div class="col-md-9 charts" id="charts">
+
+              <div class="chart">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="title">
+                      Agriculture, Rural & Urban Development
+                    </h2>
+                    <div id="agric">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chart">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="title">
+                      The Governance, Justice, Law and Order (GJLOS)
+                    </h2>
+                    <div id="gjlos">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chart">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="title">
+                      Devolution &amp; Plan
+                    </h2>
+                    <div id="dev">
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -372,7 +409,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="js/d3.bullet.js"></script>
-    <!-- // <script src="js/d3.pie.min.js"></script> -->
+    <script src="js/d3.opencounty.barchart.js"></script>
     <script src="js/d3.pie.js"></script>
 
     <script type="text/javascript">
@@ -416,235 +453,17 @@
               .text(function(d) { return d.subtitle; });
 
 
-          // Bar Chart
+          // Bar Charts
 
-          var margins = {
-              top: 20,
-              left: 350,
-              right: 24,
-              bottom: 30
-            },
-            legendPanel = {
-              width: 180
-            },
+          // To create a stacked bar chart
+          
+
+          ocstackedbarchart.create(90, 10, 0, "#agric", "%");
+          ocstackedbarchart.create(90, 10, 0, "#gjlos", "%");
+          ocstackedbarchart.create(0, 100, 2, "#dev", "%");
+
+           
             
-            width = 900 - margins.left - margins.right - legendPanel.width,
-            height = 350 - margins.top - margins.bottom,
-            dataset = [
-              {
-                data: [
-                  {
-                    dept: 'Agriculture, Rural & Urban Development',
-                    percent: 10
-                  }, 
-                  {
-                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
-                    percent: 25
-                  }, 
-                  {              
-                    dept: 'Devolution & Plan',
-                    percent: 25
-                  },
-                  {
-                    dept: 'The National Treasury',
-                    percent: 65
-                  },
-                  {
-                    dept: 'The Energy,Infrastructure and ICT',
-                    percent: 25
-                  },
-                  {
-                    dept: 'General Economic & Commercial Affairs (GECLA)',
-                    percent: 25
-                  },
-                  {
-                    dept: 'Sports, Culture and the Arts',
-                    percent: 63
-                  }, 
-                  {
-                    dept: 'The Environmental Protection, Water and Natural Resources',
-                    percent: 35
-                  }, 
-                  {
-                    dept: 'The Public Administration and International Relations',
-                    percent: 88
-                  }
-                ],
-                name: 'Spent'
-              }, 
-              {
-                data: [
-                  {
-                    dept: 'Agriculture, Rural & Urban Development',
-                    percent: 90
-                  }, 
-                  {
-                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
-                    percent: 75
-                  }, 
-                  {              
-                    dept: 'Devolution & Plan',
-                    percent: 75
-                  },
-                  {
-                    dept: 'The National Treasury',
-                    percent: 35
-                  },
-                  {
-                    dept: 'The Energy,Infrastructure and ICT',
-                    percent: 75
-                  },
-                  {
-                    dept: 'General Economic & Commercial Affairs (GECLA)',
-                    percent: 75
-                  },
-                  {
-                    dept: 'Sports, Culture and the Arts',
-                    percent: 37
-                  }, 
-                  {
-                    dept: 'The Environmental Protection, Water and Natural Resources',
-                    percent: 65
-                  }, 
-                  {
-                    dept: 'The Public Administration and International Relations',
-                    percent: 12
-                  }
-                ],
-                name: 'Allocated'
-              },{
-                data: [
-                  {
-                    dept: 'Agriculture, Rural & Urban Development',
-                    percent: 1
-                  }, 
-                  {
-                    dept: 'The Governance, Justice, Law and Order (GJLOS)',
-                    percent: 5
-                  }, 
-                  {              
-                    dept: 'Devolution & Plan',
-                    percent: 15
-                  },
-                  {
-                    dept: 'The National Treasury',
-                    percent: 6
-                  },
-                  {
-                    dept: 'The Energy,Infrastructure and ICT',
-                    percent: 0
-                  },
-                  {
-                    dept: 'General Economic & Commercial Affairs (GECLA)',
-                    percent: 0
-                  },
-                  {
-                    dept: 'Sports, Culture and the Arts',
-                    percent: 12
-                  }, 
-                  {
-                    dept: 'The Environmental Protection, Water and Natural Resources',
-                    percent: 5
-                  }, 
-                  {
-                    dept: 'The Public Administration and International Relations',
-                    percent: 0
-                  }
-                ],
-                name: 'Overspent'
-              }
-            ],
-            series = dataset.map(function (d) {
-                return d.name;
-            }),
-            dataset = dataset.map(function (d) {
-                return d.data.map(function (o, i) {
-                    // Structure it so that your numeric
-                    // axis (the stacked amount) is y
-                    return {
-                        y: o.percent,
-                        x: o.dept
-                    };
-                });
-            }),
-            stack = d3.layout.stack();
-            stack(dataset);
-
-            var dataset = dataset.map(function (group) {
-              return group.map(function (d) {
-                // Invert the x and y values, and y0 becomes x0
-                return {
-                  x: d.y,
-                  y: d.x,
-                  x0: d.y0
-                };
-              });
-            }),
-            
-            svg = d3.select('.stacked.barchart')
-                .append('svg')
-                .attr('width', width + margins.left + margins.right + legendPanel.width)
-                .attr('height', height + margins.top + margins.bottom)
-                .append('g')
-                .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')'),
-                xMax = d3.max(dataset, function (group) {
-                    return d3.max(group, function (d) {
-                        return d.x + d.x0;
-                    });
-                }),
-                xScale = d3.scale.linear()
-                    .domain([0, xMax])
-                    .range([0, width]),
-                months = dataset[0].map(function (d) {
-                    return d.y;
-                }),
-                _ = console.log(months),
-                yScale = d3.scale.ordinal()
-                    .domain(months)
-                    .rangeRoundBands([0, height], .1),
-                xAxis = d3.svg.axis()
-                    .scale(xScale)
-                    .orient('bottom'),
-                yAxis = d3.svg.axis()
-                    .scale(yScale)
-                    .orient('left'),
-                //colours = d3.scale.category10(),
-                colours = ["#77cf25","#f3f3f4", "#d1001e"],
-                groups = svg.selectAll('g')
-                    .data(dataset)
-                    .enter()
-                    .append('g')
-                    .style('fill', function (d, i) {
-                    return colours[i];
-                }),
-                rects = groups.selectAll('rect')
-                    .data(function (d) {
-                    return d;
-                })
-                    .enter()
-                    .append('rect')
-                    .attr('x', function (d) {
-                    return xScale(d.x0);
-                })
-                    .attr('y', function (d, i) {
-                    return yScale(d.y);
-                })
-                    .attr('height', function (d) {
-                    return yScale.rangeBand();
-                })
-                    .attr('width', function (d) {
-                    return xScale(d.x);
-                })
-                    
-
-                svg.append('g')
-                    .attr('class', 'axis')
-                    .attr('transform', 'translate(0,' + height + ')')
-                    .call(xAxis);
-
-            svg.append('g')
-                .attr('class', 'axis')
-                .call(yAxis);
 
 
           

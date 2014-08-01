@@ -107,6 +107,15 @@
 }
 
 
+.charts {
+	margin-top: 55px;	
+}
+
+.charts .chart {
+	margin-bottom: 50px;
+}
+
+
 /* Main Content */
 .main h1, h2 {
 	margin-top: 10px;
