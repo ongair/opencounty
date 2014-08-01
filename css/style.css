@@ -69,13 +69,58 @@
 	margin-top: 5px;
 }
 
+/* Infobox */
+
+.highlights {
+	display: none;
+}
+
+.infobox-container .stat {
+	padding: 2rem 3rem;
+	text-align: center;
+}
+
+.infobox-container .stat h3 {
+	float: right;
+}
+
+.infobox-container .stat small {
+	display: block;
+}
+
+.infobox-container .stat i {
+	/*float: left;*/
+	display: block;
+}
+
+.infobox-container .stat {
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-style: dotted;
+	border-color: #D8D8D8;
+	border-bottom-width: 1px;
+	border-right-width: 0px;
+}
+
+.infobox-container .stat:last-child {
+	border-right-width: 1px;
+}
+
+
 /* Main Content */
-.main h1 {
+.main h1, h2 {
 	margin-top: 10px;
 	font-weight: 200;
-	display: inline-block;
-	font-size: 3rem;
+	display: inline-block;	
 	border-bottom: 3px solid #ee522b;
+}
+
+.main h1 {
+	font-size: 3rem;
+}
+
+.main h2 {
+	font-size: 2.5rem;
 }
 
 .main .toggles .nav-pills>li.active>a, 
@@ -104,7 +149,7 @@
 }
 
 .allocation .table {
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
 .allocation .pointer {
@@ -227,6 +272,10 @@
 .footer .footer-menu {
 	padding-left: 0px;
 
+}
+
+.footer .col-md-4.submit {
+	padding-left: 12px;
 }
 
 .social {

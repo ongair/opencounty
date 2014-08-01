@@ -127,6 +127,60 @@
         <!-- //End Header -->
 
 
+        <!-- Write Up -->
+        <div class="writeup">
+          <div class="row">
+            <div class="col-md-12">
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <div class="row">
+            <div class="col-md-4">
+              <h2 class="title">
+                Key Indicators
+              </h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="infobox-container">
+                <div class="col-md-3 stat">
+                  <i class="fa fa-3x fa-users"></i>
+                  <h2>
+                    Population
+                    <small>100M</small>
+                  </h2>
+                </div>
+                <div class="col-md-3 stat">
+                  <h3>
+                    100M
+                  </h3>
+                </div>
+                <div class="col-md-3 stat">
+                  <h3>
+                    100M
+                  </h3>
+                </div>
+                <div class="col-md-3 stat">
+                  <h3>
+                    100M
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <!-- Bullet Chart -->
         <div class="overall">
           <div class="row">
@@ -243,15 +297,19 @@
             <div class="col-md-4 menu">
               <h4 class="footermenu">Footer Menu</h4>
                 <ul class="footer-menu">
-                  <li>
-                  </li>
-                  <li>
-                  </li>
-                  <li>
-                  </li>
-                  <li>
-                  </li>
-                </ul>
+                    <li>
+                    About the initiative
+                    </li>
+                    <li>
+                    About Open County Dashboard
+                    </li>
+                    <li>
+                    Disseminating knowledge
+                    </li>
+                    <li>
+                    Disseminating knowledge
+                    </li>
+                  </ul>
             </div>
             <div class="col-md-4 ">
               <h4>News Letter</h4>
@@ -260,15 +318,29 @@
               tempor incididunt ut labore et dolore
               </p>
               <form>
-                <div class="row collapse" style="padding-right: 10px;">
-                  <div class="small-8 columns">
-                    <input type="text" placeholder="Enter Email">
+                    <div class="row" style="padding-top: 10px;">
+                    <div class="col-md-8">
+                    <input type="text" placeholder="Enter Email" class="input placeholder">
+                    </div>
+                    <div class="col-md-4 submit">
+                    <a href="#" class="Button">Submit</a>
                   </div>
-                  <div class="small-4 columns">
-                    <a href="#" class="Button">submit</a>
-                  </div>
+              </form>
+                <div class="socialicons">
+                <a href="">
+                  <img src="img/facebook.png">
+                </a>
+                <a href="">
+                <img src="img/twitter.png">
+                </a>
+                <a href="">
+                <img src="img/google.png">
+                </a>
+                <a href="">
+                  <img src="img/rss.png">
+                </a>
                 </div>
-              </form>              
+              </div>
             </div>
           </div>
         </div>
@@ -344,20 +416,20 @@
               .text(function(d) { return d.subtitle; });
 
 
-          // >>>
+          // Bar Chart
 
           var margins = {
-              top: 12,
+              top: 20,
               left: 350,
               right: 24,
-              bottom: 25
+              bottom: 30
             },
             legendPanel = {
               width: 180
             },
             
             width = 900 - margins.left - margins.right - legendPanel.width,
-            height = 250 - margins.top - margins.bottom,
+            height = 350 - margins.top - margins.bottom,
             dataset = [
               {
                 data: [
