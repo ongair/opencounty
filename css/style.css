@@ -147,6 +147,11 @@
 	color: #333333;
 }
 
+/* Toggles */
+.toggles {
+	margin-bottom: 20px;
+}
+
 /* Allocation */
 .main .allocation { 
 	margin: 3rem auto;

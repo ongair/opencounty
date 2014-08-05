@@ -12,6 +12,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bullet.css" rel="stylesheet">
     <link href="css/chart.css" rel="stylesheet">
+    <link href="css/charticons.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,7 +113,7 @@
               </h1>
             </div>
             <div class="col-md-4 col-md-offset-4">
-              <div class="toggles">
+              <!-- <div class="toggles">
                 <ul class="nav nav-pills">
                   <li class="active">
                     <a href="index.html">Allocation</a>
@@ -121,9 +122,22 @@
                     <a href="performance.html">Performance</a>
                   </li>
                 </ul>
+              </div> -->
+              <div class="toggles">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default active">
+                    <i class="icon-pie"></i>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                    <i class="icon-bars"></i>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                    <i class="icon-table"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
         <!-- //End Header -->
 
 
@@ -159,6 +173,20 @@
                 </ul>
               </div>
 
+              <div class="toggles">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default active">
+                    <i class="icon-pie"></i>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                    <i class="icon-bars"></i>
+                  </button>
+                  <button type="button" class="btn btn-default">
+                    <i class="icon-table"></i>
+                  </button>
+                </div>
+              </div>
+
               <table class="table table-bordered table-hover">
                 <thead>
                   <th>
@@ -167,34 +195,34 @@
                 </thead>
                 <tbody class="legends">
                   <tr>
-                    <td class="active legend a"><i class="pointer"></i>Agriculture, Rural & Urban Development - 38 M</td>
+                    <td id="dept-1" class="active legend a"><i class="pointer"></i>Agriculture, Rural & Urban Development - 38 M</td>
                   </tr>
                   <tr>
-                    <td class="legend b"><i class="pointer"></i>The Governance, Justice, Law and Order (GJLOS) - 86 M</td>
+                    <td id="dept-2" class="legend b"><i class="pointer"></i>The Governance, Justice, Law and Order (GJLOS) - 86 M</td>
                   </tr>
                   <tr>
-                    <td class="legend c"><i class="pointer"></i>Devolution &amp; Plan - 1.3B</td>
+                    <td id="dept-3" class="legend c"><i class="pointer"></i>Devolution &amp; Plan - 1.3B</td>
                   </tr>
                   <tr>
-                    <td class="legend d"><i class="pointer"></i>The National Treasury - 50M</td>
+                    <td id="dept-4" class="legend d"><i class="pointer"></i>The National Treasury - 50M</td>
                   </tr>
                   <tr>
-                    <td class="legend e"><i class="pointer"></i>The Energy,Infrastructure and ICT - 45 M</td>
+                    <td id="dept-5" class="legend e"><i class="pointer"></i>The Energy,Infrastructure and ICT - 45 M</td>
                   </tr>
                   <tr>
-                    <td class="legend f"><i class="pointer"></i>General Economic & Commercial Affairs (GECLA) - 8 M</td>
+                    <td id="dept-6" class="legend f"><i class="pointer"></i>General Economic & Commercial Affairs (GECLA) - 8 M</td>
                   </tr>
                   <tr>
-                    <td class="legend g"><i class="pointer"></i>Sports, Culture and the Arts - 20M</td>
+                    <td id="dept-7" class="legend g"><i class="pointer"></i>Sports, Culture and the Arts - 20M</td>
                   </tr>                 
                   <tr>
-                    <td class="legend a"><i class="pointer"></i>The Environmental Protection, Water and Natural Resources - 19 M</td>
+                    <td id="dept-8" class="legend a"><i class="pointer"></i>The Environmental Protection, Water and Natural Resources - 19 M</td>
                   </tr>
                   <tr>
-                    <td class="legend b"><i class="pointer"></i>The Public Administration and International Relations - 93 M</td>
+                    <td id="dept-9" class="legend b"><i class="pointer"></i>The Public Administration and International Relations - 93 M</td>
                   </tr>
                   <tr>
-                    <td class="legend c"><i class="pointer"></i>Sub-Total Consolidated Fund Services - 149 M</td>
+                    <td id="dept-10" class="legend c"><i class="pointer"></i>Sub-Total Consolidated Fund Services - 149 M</td>
                   </tr>
               </table>
             </div>  
@@ -203,6 +231,136 @@
             <!-- Chart             -->
             <div class="col-md-9" id="pieChart">
             </div>
+
+
+            <!-- Table -->
+            <div class="col-md-9 col-md-offset-3 ">
+              <h2 class="section-title">Data Table</h2>
+              <i class="fa fa-download"></i>
+            <br>
+            
+            <div id="data_table" class="col-md-12 ">
+                <table class="col-md-12 table table-bordered">
+                  <caption><i>Amounts in KES</i></caption>
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Department Name</th>
+                    <th class="center">Amount Released<br> (in Millions)</th>
+                    <th class="center">Amount Expenses<br> (in Millions)</th>
+                    <th class="center">Absorption</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                    <td>1&nbsp;</td>
+                    <td>Agriculture, Rural &amp; Urban Development</td>
+                    <td align="right" style="padding-right: 20px;">46.90</td>
+                    <td align="right" style="padding-right: 20px;">37.90</td>
+                    <td>81%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>2&nbsp;</td>
+                    <td>Education</td>
+                    <td align="right" style="padding-right: 20px;">248.90</td>
+                    <td align="right" style="padding-right: 20px;">189.30</td>
+                    <td>76%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>3&nbsp;</td>
+                    <td>The Energy,Infrastructure and ICT</td>
+                    <td align="right" style="padding-right: 20px;">73.30</td>
+                    <td align="right" style="padding-right: 20px;">44.70</td>
+                    <td>61%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>4&nbsp;</td>
+                    <td>The Environmental Protection, Water and Natural Resources</td>
+                    <td align="right" style="padding-right: 20px;">34.40</td>
+                    <td align="right" style="padding-right: 20px;">18.50</td>
+                    <td>54%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>5&nbsp;</td>
+                    <td>General Economic &amp; Commercial Affairs (GECLA)</td>
+                    <td align="right" style="padding-right: 20px;">12.20</td>
+                    <td align="right" style="padding-right: 20px;">8.40</td>
+                    <td>69%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>6&nbsp;</td>
+                    <td>The Governance, Justice, Law and Order (GJLOS)</td>
+                    <td align="right" style="padding-right: 20px;">124.40</td>
+                    <td align="right" style="padding-right: 20px;">86.00</td>
+                    <td>69%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>7&nbsp;</td>
+                    <td>The Health</td>
+                    <td align="right" style="padding-right: 20px;">28.70</td>
+                    <td align="right" style="padding-right: 20px;">27.60</td>
+                    <td>96%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>8&nbsp;</td>
+                    <td>The Public Administration and International Relations</td>
+                    <td align="right" style="padding-right: 20px;">142.30</td>
+                    <td align="right" style="padding-right: 20px;">93.00</td>
+                    <td>65%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>9&nbsp;</td>
+                    <td>The Social Protection,Culture and Recreation</td>
+                    <td align="right" style="padding-right: 20px;">19.70</td>
+                    <td align="right" style="padding-right: 20px;">10.90</td>
+                    <td>55%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>10&nbsp;</td>
+                    <td>National Security</td>
+                    <td align="right" style="padding-right: 20px;">84.70</td>
+                    <td align="right" style="padding-right: 20px;">60.10</td>
+                    <td>71%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>11&nbsp;</td>
+                    <td>Sub-Total Consolidated Fund Services</td>
+                    <td align="right" style="padding-right: 20px;">380.30</td>
+                    <td align="right" style="padding-right: 20px;">148.70</td>
+                    <td>39%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>12&nbsp;</td>
+                    <td>County Governments</td>
+                    <td align="right" style="padding-right: 20px;">193.40</td>
+                    <td align="right" style="padding-right: 20px;">110.10</td>
+                    <td>57%</td>
+
+                                                          </tr>
+                                    <tr>
+                    <td>&nbsp;</td>
+                    <td><b>Totals</b></td>
+                    <td align="right" style="padding-right: 20px;"><b>1,389.20</b></td>
+                    <td align="right" style="padding-right: 20px;"><b>835.20</b></td>
+                    <td><b>60%</b></td>
+                  </tr>
+                </tbody>
+              </table>
+                            
+            </div>
+          </div>
+
           </div>
         </div>
         <!-- //End Allocation -->
@@ -364,53 +522,63 @@
             "size": {
                 "canvasWidth": 800,
                 "pieInnerRadius": "0%",
-                "pieOuterRadius": "50%"
+                "pieOuterRadius": "100%"
             },
             "data": {
                 "sortOrder": "random",
                 "content": [{
                     "label": "The Governance, Justice, Law and Order (GJLOS)",
                     "value": 400,
-                    "color": "#ff9c00"
+                    "color": "#ff9c00",
+                    "id": "dept-1"
                 }, {
                     "label": "Health",
                     "value": 120,
-                    "color": "#cc0066"
+                    "color": "#cc0066",
+                    "id": "dept-2"
                 }, {
                     "label": "General Economic & Commercial Affairs (GECLA)",
                     "value": 50,
-                    "color": "#99cc33"
+                    "color": "#99cc33",
+                    "id": "dept-3"
                 }, {
                 }, {
                     "label": "The Energy,Infrastructure and ICT",
                     "value": 150,
-                    "color": "#3366cc"
+                    "color": "#3366cc",
+                    "id": "dept-4"
                 }, {
                 }, {
                     "label": "The Public Administration and International Relations ",
                     "value": 90,
-                    "color": "#ffff66"
+                    "color": "#ffff66",
+                    "id": "dept-5"
                 }, {
                     "label": "Transport & Infrastracture",
                     "value": 50,
-                    "color": "#90c469"
+                    "color": "#90c469",
+                    "id": "dept-6"
                 }, {
                     "label": "Defence",
                     "value": 10,
-                    "color": "#daca61"
+                    "color": "#daca61",
+                    "id": "dept-7"
                 }, {
                     "label": "Education",
                     "value": 30,
-                    "color": "#e4a14b"
+                    "color": "#e4a14b",
+                    "id": "dept-8"
                 }, {
                     "label": "Sports, Culture and the Arts",
                     "value": 20,
-                    "color": "#e98125"
+                    "color": "#e98125",
+                    "id": "dept-9"
                 }]
             },
             "labels": {
                 "outer": {
-                    "pieDistance": 32
+                    "format": "none",
+                    // "pieDistance": 32
                 },
                 "inner": {
                     "format": "none"
@@ -444,6 +612,13 @@
                     "enabled": true,
                     "percentage": 100
                 }
+            },
+            "callbacks" : {
+              onClickSegment: function(a) {
+                $('.legends td.active').removeClass('active');
+                $(".legends td#" + a.data.id).addClass('active');
+
+              }
             }
         });
       })();
