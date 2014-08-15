@@ -71,3 +71,16 @@
 .hero .navigation .options .dropdown {
 	display: inline-block;
 }
+
+.hero .navigation .options .dropdown select {
+	height: 34px;
+	border-radius: 0, add -webkit-appearance: none;
+}
+
+select.btn {
+	border-radius: 0px;
+}
+
+.hero .btn {
+	border-radius: 0px;
+}

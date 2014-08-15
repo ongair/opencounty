@@ -63,34 +63,37 @@
           <h2 class="heading">Find out what your county is accomplishing.</h2>
 
           <div class="options">
+            
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                Choose your County
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li class="active"><a role="menuitem" tabindex="-1" href="#">National</a></li>
-                <li class="divider"></li>
-                <li><a role="menuitem" tabindex="-1" href="#">Nairobi</a></li>
-                <li><a role="menuitem" tabindex="-1" href="#">Kisumu</a></li>
-                <li><a role="menuitem" tabindex="-1" href="#">Bomet</a></li>
-                <li><a role="menuitem" tabindex="-1" href="#">Kiambu</a></li>
-              </ul>
+                <select class="btn btn-default dropdown-toggle" type="button" name="countyid" id="county" data-toggle="dropdown">
+                  <option value="">Choose a Region</option>
+                  <option value="0">National</option>
+                                      <option class="level1" value="3">Bomet</option>
+                                      <option class="level1" value="4">Embu</option>
+                                      <option class="level1" value="5">Kakamega</option>
+                                      <option class="level1" value="6">Kericho</option>
+                                      <option class="level1" value="7">Kisii</option>
+                                      <option class="level1" value="8">Kisumu</option>
+                                      <option class="level1" value="9">Kitui</option>
+                                      <option class="level1" value="10">Mandera</option>
+                                      <option class="level1" value="11">Meru</option>
+                                      <option class="level1" value="12">Nandi</option>
+                                      <option class="level1" value="1">Nyeri</option>
+                                      <option class="level1" value="14">Siaya</option>
+                                      <option class="level1" value="15">Tharaka Nithi</option>
+                                      <option class="level1" value="16">Wajir</option>
+                                      <option class="level1" value="17">Vihiga</option>
+                                  </select>
             </div>
 
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                Reporting Year
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">              
-                <li><a role="menuitem" tabindex="-1" href="#">2014</a></li>
-                <li><a role="menuitem" tabindex="-1" href="#">2013</a></li>
-              </ul>
+              <select class="btn btn-default dropdown-toggle" type="button" name="mwaka" id="mwaka" data-toggle="dropdown">
+                <option value="">Reporting Year</option>
+                <option>2014</option>
+              </select>
             </div>
 
-            <button type="button" class="btn btn-default btn-go">
-              Go
+            <button type="button" class="btn btn-default btn-go" id="submit"> Go
               <span class="glyphicon glyphicon-play"></span>
             </button>
           </div>
