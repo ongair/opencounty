@@ -24,11 +24,14 @@
 }
 
 .icon-pie:before {
-	content: "\e600";
+	content: "\e602";
 }
 .icon-bars:before {
-	content: "\e601";
+	content: "\e603";
+}
+.icon-info:before {
+	content: "\e600";
 }
 .icon-table:before {
-	content: "\e602";
+	content: "\e601";
 }
