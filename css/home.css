@@ -1,5 +1,7 @@
 .hero {
-	background: url('../img/cover.png') 0 -120px no-repeat fixed;
+	background: url('../img/opendata-cover2.png') 0 -170px no-repeat fixed;
+	/*background: url('../img/cover.png') 0 -120px no-repeat fixed;*/
+	/*background: url('../img/cover.png') 0 0 no-repeat fixed;*/
 	width: 100%;
 	min-height: 400px;
 	background-size: cover;
@@ -74,7 +76,8 @@
 
 .hero .navigation .options .dropdown select {
 	height: 34px;
-	border-radius: 0, add -webkit-appearance: none;
+	border-radius: 0;
+	/*-webkit-appearance: none;*/
 }
 
 select.btn {
